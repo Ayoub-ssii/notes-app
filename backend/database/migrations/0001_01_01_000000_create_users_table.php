@@ -4,23 +4,26 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+// Hna l'migration mte3 el table "users" (el nass elli bech yesta3mlou el site)
 return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Nesna3ou el table "users"
      */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name'); // Ism el user
+            $table->string('email')->unique(); // Email mte3ou, lezem ykoun unique
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password'); // Password (m'khabbi hashed)
             $table->rememberToken();
             $table->timestamps();
         });
 
+        // Hadom tables khorin yesta3malhom Laravel lel password reset w sessions
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+// Hna n'hadhrou el axios mte3na elli bech nastaamlouh f ay blasa f el app
+// El baseURL houwa el trik el asasi mte3 el backend
 const api = axios.create({
   baseURL: '/api',
   headers: {
@@ -8,7 +10,8 @@ const api = axios.create({
   },
 })
 
-// Attach token to every request automatically
+// Hna n'zidou el token mte3na l ay request bech n'baathouha lel backend
+// Interceptor request bech yethabet f localStorage w yzid el Authorization header
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
   if (token) {
@@ -17,7 +20,8 @@ api.interceptors.request.use((config) => {
   return config
 })
 
-// Redirect to /login on 401
+// Hna n'thabtou f el response elli jeya mel backend
+// Ken rjaalna error 401 (yaani mahouch m'connecti wala token wfet), n'hazouh direct lel login
 api.interceptors.response.use(
   (response) => response,
   (error) => {
