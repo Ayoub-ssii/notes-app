@@ -24,7 +24,7 @@ export default function Navbar() {
         <span className="navbar-brand">Notes</span>
         <div className="navbar-user">
           {/*  naffichi esm el user elli dakhel (connecte)*/}
-          <span >👤 {user?.name}</span>
+          <span>👤 {user?.name}</span>
           {/* Bouton bach ya3mél logout  */}
           <button className="btn btn-secondary btn-sm" onClick={handleLogout}>
             Sign out
