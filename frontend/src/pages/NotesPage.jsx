@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import NoteList from '../components/NoteList'
 import NoteForm from '../components/NoteForm'
 
-// El page el ra'isiyya mte3 el notes win nchoufou kol chay
+
 export default function NotesPage() {
   // Nesta3mlou el toast bach nwarriw messages mte3 error walla success
   const { addToast }       = useToast()

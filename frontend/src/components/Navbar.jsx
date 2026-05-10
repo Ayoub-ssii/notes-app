@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-inner">
         {/* El logo walla esm el application */}
-        <span className="navbar-brand">📝 Notes</span>
+        <span className="navbar-brand">Notes</span>
         <div className="navbar-user">
           {/* Nwarriw esm el user elli dakhél (connekte) */}
           <span>👤 {user?.name}</span>

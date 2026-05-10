@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom' //navigate bin el paget
 import { useAuth } from '../context/AuthContext'
 import { useToast } from '../context/ToastContext'
 
-// El page mte3 el login elli dakhil fiha el user el email wel password mte3ou
-export default function LoginPage() {
+
+export default function LoginPage() { 
   // Nesta3mlou el auth context bach na3mlou login
   const { login }      = useAuth()
   // Nesta3mlou el toast bach nwarriw messages lel user (ki ya3mel login s'hih walla ghalet)
@@ -12,14 +12,14 @@ export default function LoginPage() {
   // Nesta3mlou navigate bach n'hazzou el user l'page okhra ba3d el login
   const navigate       = useNavigate()
 
-  // useState bach n'khabiw el data elli dakhilha el user fil form
+  // useState bach nkhabiw el data elli dakhilha el user fil form
   const [form, setForm]     = useState({ email: '', password: '' })
-  // useState bach n'khabiw el errors elli yrajja3hom el backend (ken famma hkayet ghalta)
+  // useState bach nkhabiw el errors elli yrajja3hom el backend (ken famma hkayet ghalta)
   const [errors, setErrors] = useState({})
-  // useState bach na3rfou rwahna n'estannaw fil backend walla la (loading state)
+  // useState bach na3rfou rwahna nestannaw fil backend walla la (loading state)
   const [loading, setLoading] = useState(false)
 
-  // El function hadi t'baddel el state mte3 el form kol ma el user yikteb haja
+  // El function hadi tbaddel el state mte3 el form kol ma el user yikteb haja
   const change = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
     setErrors(prev => ({ ...prev, [e.target.name]: null }))
@@ -30,20 +30,20 @@ export default function LoginPage() {
     e.preventDefault() // bach el page ma ta3malsh refresh
     setLoading(true)
     try {
-      // N'jarbou na3mlou login s'hih
+      // Njarbou na3mlou login shih
       await login(form.email, form.password)
       addToast('Welcome back!', 'success') // Message mte3 njah
-      navigate('/notes') // N'hazzouh lel page mte3 el notes
+      navigate('/notes') // Nhazzouh lel page mte3 el notes
     } catch (err) {
       // Ken famma errors m'el validation
       if (err.response?.status === 422) {
         setErrors(err.response.data.errors || {})
       } else {
-        // Ken famma moshkla okhra (password ghalet masalan)
+        // Ken famma moshkla okhra (password ghalet mathalan)
         addToast('Login failed. Check your credentials.', 'error')
       }
     } finally {
-      setLoading(false) // N'wa9fou el loading s'wa t'adda s'hih walla ghalet
+      setLoading(false) // Nwa9fou el loading kenou t3adda s7i7 walla ghalet
     }
   }
 
@@ -52,7 +52,7 @@ export default function LoginPage() {
     <div className="auth-page">
       <div className="auth-card card">
         <div className="auth-logo">
-          <h1>📝 Notes</h1>
+          <h1> Notes</h1>
           <p>Your personal note-taking space</p>
         </div>
 
@@ -93,7 +93,7 @@ export default function LoginPage() {
         </p>
 
         <p style={{ textAlign: 'center', marginTop: '.75rem', fontSize: '.78rem', color: 'var(--text-muted)' }}>
-          Demo: test@example.com / password
+          try: ayoub@a / ayoub123
         </p>
       </div>
     </div>
