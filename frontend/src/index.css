@@ -41,7 +41,7 @@ body {
 .container { 
   max-width: 1100px; /* Thaya9na el width chwaya bech yab9a fadhwa ymin w ysar */
   margin: 0 auto; 
-  padding: 4rem 5%; /* Nesta3mlou percentage lel padding bech dima yeb3ed 3al edge */
+  padding: 4rem 10%; /* Nesta3mlou percentage lel padding bech dima yeb3ed 3al edge */
 }
 
 /* ── Navbar ── */
@@ -60,6 +60,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.navbar-user {
+  display: flex;       
+  align-items: center; 
+  gap: 15px;          
 }
 
 .navbar-brand { 
@@ -166,4 +171,148 @@ body {
   border: 1px solid var(--border);
   background: var(--surface);
   padding: 4rem;
+}
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.filter-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 20px; /* Rodhom rounded bech yjiw ashyan */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease; /* Animation behya ki t-hoveri */
+  color: #555;
+}
+
+/* Ki t-hoveri (t7ot el mouse fou9ou) */
+.filter-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px); /* Yatla3 chwaya l-fou9 */
+}
+
+/* El bouton el "Active" (elli enti khtartou) */
+.filter-btn.active {
+  background-color: #2d3436; /* Lon ghama9 kima el bouton "New Note" elli 3andek */
+  color: white;
+  border-color: #2d3436;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+/* Tzid hadhom fi CSS w t'jarrab */
+
+.filter-btn[data-filter="high"].active {
+  background-color: #ff7675; /* Ahmar khfif */
+  border-color: #d63031;
+}
+
+.filter-btn[data-filter="medium"].active {
+  background-color: #fdcb6e; /* Asfar */
+  border-color: #e1b12c;
+}
+
+.filter-btn[data-filter="low"].active {
+  background-color: #55efc4; /* Akhdhar */
+  border-color: #00b894;
+}
+.empty-state {
+  display: flex;
+  flex-direction: column; /* Becha ijiw fou9 ba3dhhom */
+  align-items: center;    /* Centrage horizontal */
+  justify-content: center; /* Centrage vertical */
+  padding: 60px 20px;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.02); /* Fara8 khfif mel lon */
+  border-radius: 15px;
+  border: 2px dashed #ccc; /* Kadr mna9at bech ya3ti style "Empty" */
+}
+
+.empty-state .icon {
+  font-size: 64px;       /* El icon n-kabrouha bech todh-her */
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); /* Chwaya dhel ta7t el icon */
+}
+
+.empty-state p {
+  font-size: 18px;
+  color: #777;           /* Lon rziz chwaya bech may-ghatich 3al notes */
+  font-weight: 500;
+  text-align: center;
+  max-width: 300px;      /* Bech el ktiba mat-jiich twila barcha 3al ecran */
+  line-height: 1.5;
+}
+/* Centrage mta3 el page kemla */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f1ea; /* El lon el beige elli testa3mel fih */
+}
+
+/* El Box (Card) elli feha el form */
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Dhel khfif */
+  width: 100%;
+  max-width: 400px; /* Bech mat-jich 3rida barcha */
+  text-align: center;
+}
+
+/* El Logo wel Text */
+.auth-logo h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #2d3436;
+}
+
+.auth-logo p {
+  color: #636e72;
+  margin-bottom: 30px;
+}
+
+/* Tadhbit el Inputs */
+.form-group {
+  text-align: left; /* El labels dima 3al yissar khir */
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* Becha el padding may-kaberch el input */
+}
+
+/* El Bouton Sign In */
+.btn-primary {
+  width: 100% !important; /* Rod-ha 100% khir mel 50% fi mobile/small cards */
+  padding: 12px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
 }

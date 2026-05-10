@@ -1,4 +1,4 @@
-// Hna njibou el hooks mte3 el context bach na3rfou chkoun el user w nwarriw messages
+  // Hna njibou el hooks mte3 el context bach na3rfou chkoun el user w nwarriw messages
 import { useAuth } from '../context/AuthContext'
 import { useToast } from '../context/ToastContext'
 
@@ -24,7 +24,7 @@ export default function Navbar() {
         <span className="navbar-brand">Notes</span>
         <div className="navbar-user">
           {/*  naffichi esm el user elli dakhel (connecte)*/}
-          <span>👤 {user?.name}</span>
+          <span >👤 {user?.name}</span>
           {/* Bouton bach ya3mél logout  */}
           <button className="btn btn-secondary btn-sm" onClick={handleLogout}>
             Sign out

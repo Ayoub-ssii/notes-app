@@ -82,19 +82,16 @@ export default function LoginPage() {
             {errors.password && <span className="field-error">{errors.password}</span>}
           </div>
 
-          {/* Button mte3 el submit, ykoun disabled wa9t el loading */}
-          <button type="submit" className="btn btn-primary" style={{ width: '100%' }} disabled={loading}>
+          <button type="submit" className="btn btn-primary" style={{ alignItems: 'center', justifyContent: 'center' , display: 'flex'}} disabled={loading}>
             {loading ? 'Signing in…' : 'Sign In'}
           </button>
         </form>
-
-        <p className="auth-footer">
-          Don't have an account? <Link to="/register">Create one</Link>
+        
+        <p stryle={{}}className="auth-footer">
+          Don't have an account ? <Link  to="/register">Create one</Link>
         </p>
 
-        <p style={{ textAlign: 'center', marginTop: '.75rem', fontSize: '.78rem', color: 'var(--text-muted)' }}>
-          try: ayoub@a / ayoub123
-        </p>
+        
       </div>
     </div>
   )
