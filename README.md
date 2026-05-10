@@ -1,6 +1,6 @@
 # 📝 Notes App — Personal Notes Management
 
-Full-stack web application lel management mta3 l-notes, m5douma b-**Laravel 11** (API) w **React 18** (Frontend).
+Full-stack application web de gestion de notes personnelles. L'objectif principal est de permettre aux utilisateurs de créer, d'organiser et de sécuriser leurs pensées et tâches quotidiennes via une interface programmatique simple et efficace.
 
 ---
 
@@ -10,8 +10,8 @@ Full-stack web application lel management mta3 l-notes, m5douma b-**Laravel 11**
 | :--- | :--- |
 | **Backend** | Laravel 11, Laravel Sanctum, Eloquent ORM |
 | **Frontend** | React 18 (Vite), React Router v6, Axios |
-| **Database** | MySQL (Primary) / SQLite (Default) |
-| **Styling** | Custom CSS (Responsive & Dark Theme) |
+| **Database** | MySQL  |
+| **Styling** | CSS  |
 
 
 ---
