@@ -15,13 +15,13 @@ class NoteController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        // Njibou el notes mel base de données, m'rattbin mel jdid lel qdim
+        // Njibou el notes mel base de données, mrattbin mel jdid lel qdim
         $notes = $request->user()
             ->notes()
             ->orderBy('created_at', 'desc')
             ->get();
 
-        // N'rajj3ou el notes f format JSON lel frontend
+        // Nrajj3ou el notes f format JSON lel frontend
         return response()->json($notes);
     }
 
