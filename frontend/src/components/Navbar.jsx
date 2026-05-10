@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { useToast } from '../context/ToastContext'
 
 export default function Navbar() {
-  // Njibou el user elli connekti w el function mte3 el logout m'el context
+  // Njibou el user elli connecti w el function mte3 el logout m'el context
   const { user, logout } = useAuth()
   // Njibou addToast bach nwarriw message (succès walla erreur)
   const { addToast }     = useToast()
