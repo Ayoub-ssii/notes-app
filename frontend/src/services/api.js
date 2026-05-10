@@ -21,7 +21,7 @@ api.interceptors.request.use((config) => {
 })
 
 // Hna nthabtou f el response elli jeya mel backend
-// Ken rjaalna error 401 (yaani mahouch m'connecti wala token wfet), n'hazouh direct lel login
+// Ken rjaalna error 401 (yaani mahouch mconnecti wala token wfet), nhazouh direct lel login
 api.interceptors.response.use(
   (response) => response,
   (error) => {

@@ -13,6 +13,7 @@ Full-stack web application lel management mta3 l-notes, m5douma b-**Laravel 11**
 | **Database** | MySQL (Primary) / SQLite (Default) |
 | **Styling** | Custom CSS (Responsive & Dark Theme) |
 
+
 ---
 
 ## 📂 Project Structure

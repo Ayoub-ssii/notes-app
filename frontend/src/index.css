@@ -3,7 +3,7 @@
 
 :root {
   /* Palette Cloth & Paper: Neutral & Luxury */
-  --bg:           #f9f8f6; /* Off-white / Cream background */
+  --bg:           #eee9e1; /* Off-white / Cream background */
   --surface:      #ffffff; /* Pure white for cards */
   --surface2:     #f4f1ee; /* Light beige for inputs/sections */
   --border:       #e2ded9; /* Subtle warm border */
@@ -12,20 +12,19 @@
   --text:         #2d2d2d; /* Soft black for readability */
   --text-muted:   #757575; /* Grey for secondary text */
   
-  /* Priority Colors (Muted to fit the aesthetic) */
+  /* Priority Colors (Muted) */
   --high:         #a67c52; /* Muted Gold/Tan */
   --medium:       #c5b4a1; /* Sand */
   --low:          #dcd6d0; /* Stone */
   
   --danger:       #964b4b; /* Muted deep red */
-  --radius:       4px;     /* Minimalist: less rounded, more sharp/clean */
+  --radius:       4px;     
   --radius-sm:    2px;
   
-  /* Typography: Mix of Serif and Sans-serif */
-  --font-family:  'Inter', -apple-system, sans-serif; /* Clean modern look */
-  --font-serif:   'Playfair Display', serif; /* Elegant headings */
+  --font-family:  'Inter', -apple-system, sans-serif;
+  --font-serif:   'Playfair Display', serif;
   --mono:         'JetBrains Mono', monospace;
-  --shadow:       0 2px 10px rgba(0, 0, 0, 0.03); /* Very subtle shadow */
+  --shadow:       0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 html { font-size: 16px; }
@@ -38,24 +37,52 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Layout ── */
+/* ── Layout (The "Edge" Fix) ── */
 .container { 
-  max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+  max-width: 1100px; /* Thaya9na el width chwaya bech yab9a fadhwa ymin w ysar */
+  margin: 0 auto; 
+  padding: 4rem 5%; /* Nesta3mlou percentage lel padding bech dima yeb3ed 3al edge */
+}
 
-/* ── Buttons (Clean & Sharp) ── */
+/* ── Navbar ── */
+.navbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; 
+  top: 0; 
+  z-index: 100;
+}
+
+.navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 5%; /* Be3edna el content mta3 el navbar 3al edge zeda */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand { 
+    font-family: var(--font-serif); 
+    font-size: 1.5rem; 
+    color: var(--accent); 
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Zidna el spacing bech ykoun luxury akther */
+}
+
+/* ── Buttons ── */
 .btn {
   display: inline-flex; align-items: center; gap: .5rem;
-  padding: .8rem 1.6rem;
+  padding: .9rem 2rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent; cursor: pointer;
-  font-family: var(--font-family); font-size: .8rem; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  transition: all .2s ease;
+  font-family: var(--font-family); font-size: .75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  transition: all .3s ease;
 }
-.btn-primary {
-  background: var(--accent); color: #fff;
-}
-.btn-primary:hover { background: #333; transform: none; }
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #333; letter-spacing: 0.2em; } /* Hover effect elegant */
 
 .btn-secondary {
   background: transparent; color: var(--text);
@@ -63,78 +90,35 @@ body {
 }
 .btn-secondary:hover { background: var(--accent); color: #fff; }
 
-.btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
-.btn-danger:hover { background: var(--danger); color: #fff; }
-
-/* ── Forms ── */
-.form-group {
-   margin-bottom: 2rem; 
-}
-.form-group label { font-size: .7rem; color: var(--text); letter-spacing: .1em; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
-.form-control {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 0; /* Square inputs for luxury feel */
-  color: var(--text);
-  font-family: var(--font-family); font-size: .9rem;
-  
-  outline: none; width: 100%;
-  padding: 1rem 1.2rem;
-}
-.form-control:focus { border-color: var(--accent); }
-
-/* ── Cards (Minimalist) ── */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
+/* ── Notes Grid & Items ── */
+.notes-header { 
+  margin-bottom: 4rem;
+  text-align: center; /* Center el title bech yji m3a el layout el jdid */
 }
 
-/* ── Badges ── */
-.badge {
-  padding: .3rem .8rem;
-  border-radius: 0;
-  font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  border: 1px solid currentColor;
-}
-.badge-high   { background: transparent; color: var(--high); }
-.badge-medium { background: transparent; color: var(--medium); }
-.badge-low    { background: transparent; color: var(--low); }
-
-/* ── Navbar ── */
-.navbar {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; z-index: 100;
-  padding: 0.5rem 0;
-}
-/* ── Navbar Updates ── */
-.navbar-inner {
-  padding: 1.5rem 2rem; /* akther fadhwa fil navbar */
-}
-.navbar-brand { 
-    font-family: var(--font-serif); 
-    font-size: 1.5rem; 
-    color: var(--accent); 
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.notes-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+  gap: 3rem; 
 }
 
-/* ── Note list / grid ── */
-.notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2.5rem; }
 .note-item {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 0; padding: 1.5rem;
-  transition: all .3s ease;
+  background: var(--surface); 
+  border: 1px solid var(--border);
+  position: relative;
   padding: 2.5rem;
-  margin-bottom: 1rem;
+  transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.note-item:hover { border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-/* Remove the top colored bar to keep it minimal, use a small side accent instead */
+.note-item:hover { 
+  transform: translateY(-5px);
+  border-color: var(--accent); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
+}
+
+/* Side Accent for Priority */
 .note-item::before {
-  content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px;
+  content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
 }
 .note-item.priority-high::before   { background: var(--high); }
 .note-item.priority-medium::before { background: var(--medium); }
@@ -142,32 +126,44 @@ body {
 
 .note-title { 
     font-family: var(--font-serif); 
-    font-size: 1.2rem; 
+    font-size: 1.3rem; 
     font-weight: 500; 
     color: var(--accent); 
-    letter-spacing: 0.03em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
-.note-content { font-size: .9rem; color: var(--text-muted); line-height: 1.8; }
 
-.notes-header { 
-  margin-bottom: 3.5rem; /* marge kbira bin el title w el grid */
+.note-content { 
+  font-size: .95rem; 
+  color: var(--text-muted); 
+  line-height: 1.8; 
 }
+
+/* ── Forms ── */
+.form-group { margin-bottom: 2.5rem; }
+.form-control {
+  background: var(--surface2); 
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 1.2rem;
+  width: 100%;
+  transition: border .3s ease;
+}
+.form-control:focus { 
+  background: var(--surface);
+  border-color: var(--accent);
+  outline: none;
+}
+
 /* ── Modal ── */
 .modal-overlay {
-  background: rgba(255, 255, 255, 0.8); /* Light overlay for cleaner look */
-  backdrop-filter: blur(2px);
-}
-.modal {
-  border-radius: 0;
-  border: 1px solid var(--accent);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  background: rgba(238, 233, 225, 0.9); /* Matching background color with transparency */
+  backdrop-filter: blur(8px);
 }
 
-/* ── Filter bar ── */
-.filter-btn {
-  padding: .5rem 1.2rem; border-radius: 0; border: 1px solid var(--border);
-  background: transparent; color: var(--text-muted);
-  text-transform: uppercase; font-size: .7rem; letter-spacing: .1em;
+.modal {
+  max-width: 600px;
+  margin: 2rem auto;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 4rem;
 }
-.filter-btn.active { border-color: var(--accent); color: var(--accent); font-weight: 700; }
