@@ -1,6 +1,6 @@
 import NoteItem from './NoteItem'
 
-// El filtrèt elli n'najmou nasta3mlouhom bach n'choufou el notes b'priority mte3hom
+// El filtrèt elli n'najmou nasta3mlouhom bach nchoufou el notes bpriority mte3hom
 const FILTERS = ['all', 'high', 'medium', 'low']
 
 export default function NoteList({ notes, filter, onFilterChange, onEdit, onDeleted }) {
@@ -33,9 +33,9 @@ export default function NoteList({ notes, filter, onFilterChange, onEdit, onDele
           <p>{filter === 'all' ? 'No notes yet. Create your first one!' : `No ${filter}-priority notes.`}</p>
         </div>
       ) : (
-        // Ken famma notes, n'warriwhom fi grid
+        // Ken famma notes, nwarriwhom fi grid
         <div className="notes-grid">
-          {/* N'3adiw 3la kol note (map) w n'3aytou l'NoteItem bach t'rassemha fel ecran */}
+          {/* N3adiw 3la kol note (map) w n3aytou l'NoteItem bach torssemha fel ecran */}
           {visible.map(note => (
             <NoteItem key={note.id} note={note} onEdit={onEdit} onDeleted={onDeleted} />
           ))}

@@ -3,29 +3,29 @@ import { useAuth } from '../context/AuthContext'
 import { useToast } from '../context/ToastContext'
 
 export default function Navbar() {
-  // Njibou el user elli connecti w el function mte3 el logout m'el context
+  // Njibou el user elli connecti w el function mte3 el logout mel context
   const { user, logout } = useAuth()
   // Njibou addToast bach nwarriw message (succès walla erreur)
   const { addToast }     = useToast()
 
-  // Function bach n'kharjou el user mel app
+  // Function bach nkharjou el user mel app
   const handleLogout = async () => {
-    // N'3aytou l'logout elli jey m'el AuthContext
+    // N3aytou lel logout elli jey mel AuthContext
     await logout()
-    // Nwarriw message l'el user elli houwa khraj b'najèh
+    // Nwarriw message lel user elli houwa khraj bnajeh
     addToast('Logged out successfully.', 'success')
   }
 
   return (
-    // El design mte3 el navbar m'el fou9
+    // El design mte3 el navbar mel fou9
     <nav className="navbar">
       <div className="navbar-inner">
-        {/* El logo walla esm el application */}
+        
         <span className="navbar-brand">Notes</span>
         <div className="navbar-user">
-          {/* Nwarriw esm el user elli dakhél (connekte) */}
+          {/*  naffichi esm el user elli dakhel (connecte)*/}
           <span>👤 {user?.name}</span>
-          {/* Bouton bach ya3mél logout ki yenzél 3lih */}
+          {/* Bouton bach ya3mél logout  */}
           <button className="btn btn-secondary btn-sm" onClick={handleLogout}>
             Sign out
           </button>

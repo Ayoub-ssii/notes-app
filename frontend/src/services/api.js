@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// Hna n'hadhrou el axios mte3na elli bech nastaamlouh f ay blasa f el app
+// Hna nhadhrou el axios mte3na elli bech nastaamlouh f ay blasa f el app
 // El baseURL houwa el trik el asasi mte3 el backend
 const api = axios.create({
   baseURL: '/api',
@@ -20,7 +20,7 @@ api.interceptors.request.use((config) => {
   return config
 })
 
-// Hna n'thabtou f el response elli jeya mel backend
+// Hna nthabtou f el response elli jeya mel backend
 // Ken rjaalna error 401 (yaani mahouch m'connecti wala token wfet), n'hazouh direct lel login
 api.interceptors.response.use(
   (response) => response,

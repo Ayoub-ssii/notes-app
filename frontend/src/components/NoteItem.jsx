@@ -2,10 +2,10 @@ import { useState } from 'react'
 import api from '../services/api'
 import { useToast } from '../context/ToastContext'
 
-// El labels mte3 el priority bach nwarriwhom l'el user kima huma
+// El labels mte3 el priority bach nwarriwhom lel user kima huma
 const PRIORITY_LABEL = { low: 'Low', medium: 'Medium', high: 'High' }
 
-// Function bach n'badlou el date mte3 el note l'format n'najmou na9rawh
+// Function bach nbadlou el date mte3 el note el format najmou na9rawh
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric'
@@ -15,20 +15,20 @@ function formatDate(dateStr) {
 export default function NoteItem({ note, onEdit, onDeleted }) {
   const { addToast }           = useToast()
   
-  // State bach na3rfou ken el user nzel 3la "Delete" (bech n'thabtou fih 9bal ma nfasskhou)
+  // State bach na3rfou ken el user nzel 3la "Delete" (bech nthabtou fih 9bal ma nfasskhou)
   const [confirming, setConfirming] = useState(false)
   
-  // State bach na3rfou ken el note 9a3da tetfassakh tawa m'el database
+  // State bach na3rfou ken el note 9a3da tetfassakh tawa mel database
   const [deleting, setDeleting]     = useState(false)
 
-  // Function bach n'fasskhou el note m'el API
+  // Function bach nfasskhou el note m'el API
   const handleDelete = async () => {
     setDeleting(true)
     try {
-      // N'3aytou l'DELETE endpoint m'el API
+      // N3aytou l'DELETE endpoint mel API
       await api.delete(`/notes/${note.id}`)
       addToast('Note deleted.', 'success')
-      // N'khabrou el NoteList elli el note tfasskhet bach t'nahihha m'el ecran
+      // Nkhabrou el NoteList elli el note tfasskhet bach tnahihha mel ecran
       onDeleted(note.id)
     } catch {
       addToast('Could not delete note.', 'error')

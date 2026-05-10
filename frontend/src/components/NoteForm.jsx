@@ -2,22 +2,22 @@ import { useState, useEffect } from 'react'
 import api from '../services/api'
 import { useToast } from '../context/ToastContext'
 
-// El data el fergha mte3 el note awwel ma nabdaw
+// El data el fergha mte3 el note awel ma nabdaw
 const EMPTY = { title: '', content: '', priority: 'medium' }
 
 export default function NoteForm({ editingNote, onSaved, onCancel }) {
   const { addToast }      = useToast()
   
-  // useState bach n'khabiw el data elli dakhilha el user fi west el form
+  // useState bach nkhabiw el data elli dakhilha el user fi west el form
   const [form, setForm]   = useState(EMPTY)
   
-  // Bach n'khabiw ay erreur tsir ki n'thabtou fel form (kima title fergh)
+  // Bach nkhabiw ay erreur tsir ki nthabtou fel form (kima title fergh)
   const [errors, setErrors] = useState({})
   
-  // Bach na3rfou ken l'app 9a3da t'khabi fel data (loading)
+  // Bach na3rfou ken l'app 9a3da tkhabi fel data (loading)
   const [loading, setLoading] = useState(false)
 
-  // El useEffect hna bach i'3ammar el form b'data mte3 note 9dima kenek bech ta3mél edit
+  // El useEffect hna bach y3ammar el form b data mte3 note 9dima kenek bech ta3mel edit
   useEffect(() => {
     if (editingNote) {
       setForm({ title: editingNote.title, content: editingNote.content || '', priority: editingNote.priority })
@@ -27,17 +27,17 @@ export default function NoteForm({ editingNote, onSaved, onCancel }) {
     setErrors({})
   }, [editingNote])
 
-  // Function t'badél el state mte3 el form kol ma el user yaktéb haja fi ay input
+  // Function tbadel el state mte3 el form kol ma el user yakteb haja fi ay input
   const change = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
     setErrors(prev => ({ ...prev, [e.target.name]: null }))
   }
 
-  // Hna el logic mte3 el form ki l'user ya3mél submit (clique 3la bouton save)
+  // Hna el logic mte3 el form ki el user ya3mél submit (clique 3la bouton save)
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // N'thabtou ken el title fergh, nwarriw erreur
+    // Nthabtou ken el titre fer8 nwarriw erreur
     if (!form.title.trim()) {
       setErrors({ title: 'Title is required.' })
       return
@@ -46,19 +46,19 @@ export default function NoteForm({ editingNote, onSaved, onCancel }) {
     setLoading(true)
     try {
       if (editingNote) {
-        // Kenek ta3mél fi update l'note mawjouda
+        // Kenek ta3mel fi update lel note mawjouda
         await api.put(`/notes/${editingNote.id}`, form)
         addToast('Note updated!', 'success')
       } else {
-        // Kenek t'zid fi note jdida
+        // Kenek tzid fi note jdida
         await api.post('/notes', form)
         addToast('Note created!', 'success')
       }
-      // N'farghou el form w n'3aytou l'onSaved bach t'refreshy el list
+      // Nfarghou el form w n3aytou lel onSaved bach trefreshi el list
       setForm(EMPTY)
       onSaved()
     } catch (err) {
-      // Ken famma ghalta m'el backend
+      // Ken famma ghalta mel backend
       if (err.response?.status === 422) {
         const apiErrors = err.response.data.errors || {}
         setErrors(apiErrors)
@@ -74,7 +74,7 @@ export default function NoteForm({ editingNote, onSaved, onCancel }) {
     // El design mte3 el modal elli fih el form
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onCancel()}>
       <div className="modal">
-        {/* N'badlou el title mte3 el form 3la hsab kenou edit walla jdid */}
+        {/* Nbadlou el title mte3 el form 3la hsab kenou edit walla jdid */}
         <h3>{editingNote ? '✏️ Edit Note' : '➕ New Note'}</h3>
         <form onSubmit={handleSubmit}>
           {/* Input mte3 el title */}
@@ -108,7 +108,7 @@ export default function NoteForm({ editingNote, onSaved, onCancel }) {
             </select>
           </div>
 
-          {/* Boutonèt bach n'batlou walla n'khabiw el note */}
+          {/* Boutonèt bach nbatlou walla nkhabiw el note */}
           <div className="modal-actions">
             <button type="button" className="btn btn-secondary" onClick={onCancel}>
               Cancel
