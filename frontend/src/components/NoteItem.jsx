@@ -52,16 +52,16 @@ export default function NoteItem({ note, onEdit, onDeleted }) {
         {/* Badge mte3 el priority (Low, Medium, High) */}
         <span className={`badge badge-${note.priority}`}>{PRIORITY_LABEL[note.priority]}</span>
         {/* Date elli t'khal9et fiha el note */}
-        <span className="note-date">{formatDate(note.created_at)}</span>
+        <span className="note-date">{formatDate(note.created_at)} --</span>
       </div>
 
       {/* Logic mte3 el buttons: ken ma nzelch 3la delete, nwarriw edit w delete icons */}
       {!confirming ? (
         <div className="note-actions">
           {/* Bouton edit: n'3aytou l'onEdit elli jey m'el parent */}
-          <button className="btn btn-ghost btn-sm" onClick={() => onEdit(note)} title="Edit">✏️</button>
+          <button className="btn btn-ghost btn-sm" onClick={() => onEdit(note)} title="Edit">edit</button>
           {/* Bouton delete: i'pasi l'confirming state l'true */}
-          <button className="btn btn-ghost btn-sm" onClick={() => setConfirming(true)} title="Delete">🗑️</button>
+          <button className="btn btn-ghost btn-sm" onClick={() => setConfirming(true)} title="Delete">delete</button>
         </div>
       ) : (
         // Ken nzel 3la delete, nwarriw "Delete?" w Yes/No bach n'thabtou
